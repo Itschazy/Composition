@@ -3,7 +3,7 @@ package com.chxzyfps.composition.domain.usecases
 import com.chxzyfps.composition.domain.entity.Question
 import com.chxzyfps.composition.domain.repository.GameRepository
 
-class GetQuestionUseCase(
+class GenerateQuestionUseCase(
     private val repository: GameRepository
 ) {
     operator fun invoke(maxSumValue: Int): Question {
