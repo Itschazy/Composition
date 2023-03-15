@@ -2,9 +2,9 @@ package com.chxzyfps.composition.domain.entity
 
 data class Question(
     val sum: Int,
-    val visibleNumver: Int,
+    val visibleNumber: Int,
     val options: List<Int>
 ) {
     val rightAnswer: Int
-        get() = sum - visibleNumver
+        get() = sum - visibleNumber
 }
