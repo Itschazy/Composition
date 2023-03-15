@@ -19,10 +19,12 @@ import com.chxzyfps.composition.domain.entity.Level
 
 class GameFragment : Fragment() {
 
+    private val viewModelFactory by lazy {
+        GameViewModelFactory(level, requireActivity().application)
+    }
     private val viewModel by lazy {
         ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
+            this, viewModelFactory
         )[GameViewModel::class.java]
     }
 
@@ -61,7 +63,6 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
         setClickListenersOnOptions()
-        viewModel.startGame(level)
     }
 
     private fun setClickListenersOnOptions() {
@@ -74,7 +75,7 @@ class GameFragment : Fragment() {
         }
     }
 
-    private fun observeViewModel(){
+    private fun observeViewModel() {
         viewModel.question.observe(viewLifecycleOwner) {
             binding.apply {
                 tvSum.text = it.sum.toString()
