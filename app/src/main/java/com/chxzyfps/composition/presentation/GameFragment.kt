@@ -96,7 +96,7 @@ class GameFragment : Fragment() {
             val color = ContextCompat.getColor(requireContext(), colorResId)
             binding.tvAnswersProgress.setTextColor(color)
         }
-        viewModel.enoughPercentOfRightAnwers.observe(viewLifecycleOwner) {
+        viewModel.enoughPercentOfRightAnswers.observe(viewLifecycleOwner) {
             val colorResId = if (it) {
                 android.R.color.holo_green_light
             } else {
